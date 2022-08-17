@@ -1,0 +1,22 @@
+{
+    "name": "claudiooliveira/doctrine-new",
+    "description": "Estudo com doctrine",
+    "require": {
+        "doctrine/orm": "^2.13",
+        "doctrine/dbal": "^3.4",
+        "doctrine/annotations": "^1.13",
+        "symfony/yaml": "^5.4",
+        "symfony/cache": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Cláudio Oliveira",
+            "email": "claudiooliveirajr1994@outlook.com"
+        }
+    ]
+}
