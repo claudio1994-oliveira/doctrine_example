@@ -16,7 +16,7 @@ class Phone
 
     //o inverseBy é opcional para o relacionamento mas ajuda o Doctrine em alguns cenários.
     #[ManyToOne(targetEntity: Student::class, inversedBy: "phones")]
-    public readonly Student $student;
+    private  Student $student;
 
     public function __construct(
 

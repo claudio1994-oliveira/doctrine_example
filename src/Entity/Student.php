@@ -18,7 +18,7 @@ class Student
 
 
     #[OneToMany(targetEntity: Phone::class, mappedBy: "student")]
-    public  readonly Collection $phones;
+    public  Collection $phones;
 
     public function __construct(
 
