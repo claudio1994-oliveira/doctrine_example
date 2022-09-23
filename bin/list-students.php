@@ -1,5 +1,6 @@
 <?php
 
+use App\Entity\Phone;
 use App\Entity\Student;
 use App\Helper\EntityManagerCreator;
 
@@ -16,9 +17,11 @@ foreach ($studentList as $student) {
     echo "ID: $student->id\nNome: $student->name\n\n";
     echo "telefones:\n";
 
-    foreach ($student->phones() as $phone) {
+    echo implode(', ', $student->phones()->map(fn (Phone $phone) => $phone->numberPhone)->toArray());
+
+    /*  foreach ($student->phones() as $phone) {
         echo $phone->numberPhone . PHP_EOL;
     }
-
+ */
     echo PHP_EOL;
 }

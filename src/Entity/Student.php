@@ -35,7 +35,7 @@ class Student
         $phone->setStudent($this);
     }
 
-    public function phones(): iterable
+    public function phones(): Collection
     {
         return $this->phones;
     }
