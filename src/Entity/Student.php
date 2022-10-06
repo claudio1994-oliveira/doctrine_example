@@ -21,7 +21,7 @@ class Student
     #[OneToMany(targetEntity: Phone::class, mappedBy: "student", cascade: ['persist', 'remove'])]
     public  Collection $phones;
 
-    #[ManyToMany(targetEntity: Course::class, inversedBy: "students", cascade: ['persist', 'remove'])]
+    #[ManyToMany(targetEntity: Course::class, inversedBy: "students", cascade: ['persist', 'remove'], fetch: 'EAGER')]
     public  Collection $courses;
 
     public function __construct(
