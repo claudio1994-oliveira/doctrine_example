@@ -12,7 +12,17 @@ class DoctrineStudentRepository extends EntityRepository
      */
     public function studentsAndCourses(): array
     {
-        $dql = 'SELECT student, phone, course FROM App\\Entity\\Student student LEFT JOIN student.phones phone LEFT JOIN student.courses course';
-        return $this->getEntityManager()->createQuery($dql)->getResult();
+
+        return $this->createQueryBuilder('student')
+            ->addSelect('phone')
+            ->addSelect('course')
+            ->leftJoin('student.phones', 'phone')
+            ->leftJoin('student.courses', 'course')
+            ->getQuery()
+            ->getResult();
+
+        /** Utilizando o DQL */
+        /*  $dql = 'SELECT student, phone, course FROM App\\Entity\\Student student LEFT JOIN student.phones phone LEFT JOIN student.courses course';
+        return $this->getEntityManager()->createQuery($dql)->getResult(); */
     }
 }
