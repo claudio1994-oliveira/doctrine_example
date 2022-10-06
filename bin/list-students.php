@@ -8,15 +8,10 @@ use App\Helper\EntityManagerCreator;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $entityManager = EntityManagerCreator::createEntityManager();
-$dql = 'SELECT student, phone, course FROM App\\Entity\\Student student LEFT JOIN student.phones phone LEFT JOIN student.courses course';
+$studentRepository = $entityManager->getRepository(Student::class);
+$studentList = $studentRepository->studentsAndCourses();
 
-//$studentRepository = $entityManager->getRepository(Student::class);
 
-/** @var Student[] $studentList */
-//$studentList = $studentRepository->findAll();
-
-$studentList = $entityManager->createQuery($dql)->getResult();
-//$studentList = $entityManager->getRepository(Student::class)->findAll();
 
 foreach ($studentList as $student) {
 
